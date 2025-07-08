@@ -161,8 +161,8 @@ class ZenodoUploader:
                         response = self.session.put(upload_url, data=file_wrapper)
                         response.raise_for_status()
 
-                        click.echo(f"Successfully uploaded: {file_name}")
-                        return
+                    click.echo(f"Successfully uploaded: {file_name}")
+                    return
 
             except (requests.RequestException, OSError):
                 if attempt < max_retries:
