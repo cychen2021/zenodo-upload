@@ -101,7 +101,7 @@ class ZenodoUploader:
         bucket_url = record_info["links"]["bucket"]
 
         # Upload each file with progress tracking
-        with tqdm(total=len(file_paths), desc="Uploading files", unit="file") as pbar:
+        with tqdm(total=len(file_paths), desc="Uploading files", unit="file", position=0) as pbar:
             for file_path in file_paths:
                 self._upload_single_file(bucket_url, file_path, max_retries)
                 pbar.update(1)
@@ -148,10 +148,11 @@ class ZenodoUploader:
                     # Create progress bar for this file
                     with tqdm(
                         total=file_size,
-                        desc=f"Uploading {file_name}",
+                        desc=f"Uploading {file_name} [{attempt + 1}/{max_retries}]",
                         unit="B",
                         unit_scale=True,
                         leave=False,
+                        position=1,
                     ) as file_pbar:
                         # Wrap file object to track progress
                         file_wrapper = _ProgressFileWrapper(file_obj, file_pbar)
@@ -161,7 +162,6 @@ class ZenodoUploader:
                         response = self.session.put(upload_url, data=file_wrapper)
                         response.raise_for_status()
 
-                    click.echo(f"Successfully uploaded: {file_name}")
                     return
 
             except (requests.RequestException, OSError):
