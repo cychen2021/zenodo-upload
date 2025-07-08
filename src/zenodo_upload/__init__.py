@@ -167,9 +167,6 @@ class ZenodoUploader:
             except (requests.RequestException, OSError):
                 if attempt < max_retries:
                     wait_time = 2**attempt  # Exponential backoff
-                    click.echo(
-                        f"Upload failed for {file_name}, retrying in {wait_time} seconds... (attempt {attempt + 1}/{max_retries + 1})"
-                    )
                     time.sleep(wait_time)
                 else:
                     click.echo(
