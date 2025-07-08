@@ -148,7 +148,7 @@ class ZenodoUploader:
                     # Create progress bar for this file
                     with tqdm(
                         total=file_size,
-                        desc=f"Uploading {file_name} [{attempt + 1}/{max_retries}]",
+                        desc=f"{file_name} [{attempt + 1}/{max_retries}]",
                         unit="B",
                         unit_scale=True,
                         leave=False,
