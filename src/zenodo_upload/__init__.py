@@ -1,2 +1,8 @@
+import click
+
+@click.command("zenodo_upload")
+def cli() -> None:
+    pass
+
 def main() -> None:
-    print("Hello from zenodo-upload!")
+    cli()
