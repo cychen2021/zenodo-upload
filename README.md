@@ -1,4 +1,4 @@
-# zenodo_upload
+# zenodo-upload
 
 A Zenodo uploader with retrying and progress bar functionalities.
 
