@@ -10,7 +10,9 @@ ZENODO_SANDBOX_URL = "https://sandbox.zenodo.org/api"
 
 
 @click.command("zenodo-upload")
-@click.password_option("--access-token", "-p", help="Zenodo access token", confirmation_prompt=False)
+@click.password_option(
+    "--access-token", "-p", help="Zenodo access token", confirmation_prompt=False
+)
 @click.option("--dry-run", is_flag=True, help="Perform a dry run without uploading")
 @click.option(
     "--record-id",
