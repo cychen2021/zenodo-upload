@@ -20,6 +20,7 @@ ZENODO_SANDBOX_URL = "https://sandbox.zenodo.org/api"
     type=str,
     default=None,
     required=True,
+    confirmation_prompt=False
 )
 @click.argument(
     "directory",
