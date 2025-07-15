@@ -15,7 +15,7 @@ A Zenodo uploader with retrying and progress bar functionalities.
 Using `pipx`:
 
 ```bash
-git clone <repository-url>
+git clone "https://github.com/cychen2021/zenodo-upload"
 cd zenodo-upload
 pipx install .
 ```
