@@ -12,18 +12,12 @@ A Zenodo uploader with retrying and progress bar functionalities.
 
 ## Installation
 
-Using `uv`:
-
-```bash
-uv add zenodo-upload
-```
-
-Or clone and install locally:
+Using `pipx`:
 
 ```bash
 git clone <repository-url>
-cd zenodo_upload
-uv sync
+cd zenodo-upload
+pipx install .
 ```
 
 ## Usage
